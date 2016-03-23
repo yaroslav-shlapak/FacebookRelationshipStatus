@@ -21,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 
 import java.util.Locale;
 
@@ -45,7 +46,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         // Check that the activity is using the layout version with
         // the fragment_container FrameLayout
-        Log.d("MainActivity", "onCreate");
+        Log.d(DEBUG_LOG_TAG, "onCreate");
 
         mTitle = mDrawerTitle = getTitle();
         mPlanetTitles = getResources().getStringArray(R.array.planets_array);
@@ -107,7 +108,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d("MainActivity", "onStop");
+        Log.d(DEBUG_LOG_TAG, "onStop");
 
     }
 
@@ -118,15 +119,21 @@ public class MainActivity extends Activity {
     protected void onPause() {
         super.onPause();
         // Unbind from the service
-        Log.d("MainActivity", "onPause");
+        Log.d(DEBUG_LOG_TAG, "onPause");
+
+        // Logs 'app deactivate' App Event.
+        AppEventsLogger.deactivateApp(this);
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("MainActivity", "onResume");
-        ;
+        Log.d(DEBUG_LOG_TAG, "onResume");
+
+
+        // Logs 'install' and 'app activate' App Events.
+        AppEventsLogger.activateApp(this);
     }
 
     @Override
