@@ -1,8 +1,11 @@
 <android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFF">
 
     <ListView android:id="@+id/left_drawer"
         android:layout_width="240dp"
@@ -13,5 +16,55 @@
         android:dividerHeight="0dp"
         android:background="#111"/>
 
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FFF"
+        android:id="@+id/main_ui_container">
+        <com.facebook.login.widget.LoginButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            facebook:com_facebook_confirm_logout="false"
+            facebook:com_facebook_tooltip_mode="never_display"
+            />
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:id="@+id/greeting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:textColor="#333"
+                android:textSize="18sp"/>
+            <com.facebook.login.widget.ProfilePictureView
+                android:id="@+id/profilePicture"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                facebook:com_facebook_preset_size="normal"/>
+            <Button
+                android:id="@+id/postStatusUpdateButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Post Status Update"
+                />
+            <Button
+                android:id="@+id/postPhotoButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Post Photo"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
 
 </android.support.v4.widget.DrawerLayout>
