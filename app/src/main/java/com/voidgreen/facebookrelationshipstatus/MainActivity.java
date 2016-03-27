@@ -77,8 +77,6 @@ public class MainActivity extends Activity {
     private final String PENDING_ACTION_BUNDLE_KEY =
             "com.example.hellofacebook:PendingAction";
 
-    private Button postStatusUpdateButton;
-    private Button postPhotoButton;
     private ProfilePictureView profilePictureView;
     private TextView greeting;
     private PendingAction pendingAction = PendingAction.NONE;
@@ -196,20 +194,6 @@ public class MainActivity extends Activity {
 
         profilePictureView = (ProfilePictureView) findViewById(R.id.profilePicture);
         greeting = (TextView) findViewById(R.id.greeting);
-
-        postStatusUpdateButton = (Button) findViewById(R.id.postStatusUpdateButton);
-        postStatusUpdateButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                onClickPostStatusUpdate();
-            }
-        });
-
-        postPhotoButton = (Button) findViewById(R.id.postPhotoButton);
-        postPhotoButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                onClickPostPhoto();
-            }
-        });
 
         // Can we present the share dialog for regular links?
         canPresentShareDialog = ShareDialog.canShow(
@@ -410,9 +394,6 @@ public class MainActivity extends Activity {
 
     private void updateUI() {
         boolean enableButtons = AccessToken.getCurrentAccessToken() != null;
-
-        postStatusUpdateButton.setEnabled(enableButtons || canPresentShareDialog);
-        postPhotoButton.setEnabled(enableButtons || canPresentShareDialogWithPhotos);
 
         Profile profile = Profile.getCurrentProfile();
         if (enableButtons && profile != null) {
