@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:checkableBehavior="all">
+
+    <group android:id="@+id/group1">
+        <item
+            android:id="@+id/timeline"
+            android:title="One" />
+        <item
+            android:id="@+id/candidates"
+            android:title="Two" />
+        <item
+            android:id="@+id/starred"
+            android:title="Three" />
+    </group>
+    <group android:id="@+id/group2">
+        <item
+            android:id="@+id/legislators"
+            android:title="One" />
+
+        <item
+            android:id="@+id/bills"
+            android:title="Two" />
+        <item
+            android:id="@+id/votes"
+            android:title="Three" />
+    </group>
+    <group android:id="@+id/group3">
+        <item
+            android:id="@+id/settings"
+            android:title="One" />
+        <item
+            android:id="@+id/about"
+            android:title="Two" />
+    </group>
+
+</menu>
